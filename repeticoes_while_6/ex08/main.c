@@ -3,31 +3,40 @@
 #include <locale.h>
 
 int main() {
+    int a, b, total = 1;
+
     setlocale(LC_ALL, "Portuguese");
 
-    int num, exp, result = 1;
+    do {
+        printf("Informe o valor de a: ");
+        scanf("%d", &a);
+    } while (a <= 0);
 
-    printf("Informe um número para calcular sua potência: ");
-    scanf("%d", &num);
-    printf("Agora informe seu expoente: ");
-    scanf("%d", &exp);
+    printf("Informe o valor de b: ");
+    scanf("%d", &b);
 
-    if (exp == 0) {
-        printf("Todo número elevado à 0 é igual a 1.\n");
-    } else if (exp < 0) {
-        result = 1;
-        for (int i = 0; i > exp; i--) {
-            result *= num;
+    if (b == 1) {
+        printf("Todo número elevado à 1 equivale a ele mesmo: %d\n", a);
+    } else if (b == 0) {
+        printf("Todo número elevado à 0 equivale a 1.\n");
+    } else if (b < 0) {
+        total = 1;
+        int i = 0;
+        while (i > b) {
+            total *= a;
+            i--;
         }
-        printf("%d^%d = 1/%d\n", num, exp, result);
+        printf("%d ^ %d = 1/%d\n", a, b, total);
     } else {
-        result = 1;
-        for (int i = 0; i < exp; i++) {
-            result *= num;
+        total = 1;
+        int i = 0;
+        while (i < b) {
+            total *= a;
+            i++;
         }
-        printf("%d^%d = %d\n", num, exp, result);
+        printf("%d ^ %d = %d\n", a, b, total);
     }
 
-    return 0;
 }
+
 
