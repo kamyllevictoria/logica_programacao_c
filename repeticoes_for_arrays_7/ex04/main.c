@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() {
+main() {
     char frase[100];
     int i, tam;
     
     printf("\nDigite uma frase e a veja invertida: "); 
     fflush(stdin); 
-    gets(frase);
+    //gets(frase);
+    fgets(frase,sizeof(frase),stdin);
     tam = strlen(frase); 
     
     char inv[tam + 1]; 
@@ -19,10 +20,9 @@ int main() {
     for (i = 0; i < tam; i++, j--) {
         inv[j] = frase[i];
     }
+    
     inv[tam] = '\0';
     
     printf("\nA frase invertida e dada por: %s", inv);
-    
-    return 0;
 }
 
